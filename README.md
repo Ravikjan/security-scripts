@@ -23,7 +23,7 @@ CI и cron, понятные сообщения на русском.
   встроенные модули PowerShell 7. Ничего не нужно устанавливать через pip.
 - **Локальная работа.** Скрипты не обращаются к сети и не отправляют данные
   наружу — только читают файлы и настройки системы.
-- **Тесты.** 53 теста Python (`unittest`) и 28 проверок PowerShell без Pester.
+- **Тесты.** 53 теста Python (`unittest`) и 29 проверок PowerShell без Pester.
 - **Отчёты.** Консоль для человека, JSON/CSV/HTML для автоматизации и архива.
 
 ## Требования
@@ -182,7 +182,7 @@ SEC-012    НАРУШЕНО     Medium     Минимальная длина п�
 # Python: 53 теста
 python -m unittest discover -s tests -t . -v
 
-# PowerShell: 28 проверок
+# PowerShell: 29 проверок
 pwsh -File tests/Test-SecurityBaseline.ps1
 ```
 

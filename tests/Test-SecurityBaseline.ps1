@@ -28,7 +28,13 @@ if (-not (Test-Path -LiteralPath $tmp)) {
 
 $script:Passed = 0
 $script:Failed = 0
-$LASTEXITCODE = 0
+
+# Коды возврата проверяем запуском отдельного процесса: так результат не зависит
+# от версии PowerShell и от способа вызова теста (-File или -Command ". ...").
+$pwshExe = (Get-Process -Id $PID).Path
+if ([string]::IsNullOrWhiteSpace($pwshExe)) {
+    $pwshExe = (Get-Command pwsh -ErrorAction Stop).Source
+}
 
 function Write-Header {
     param([string]$Text)
@@ -117,9 +123,10 @@ Assert-Equal -Expected 'SEC-006,SEC-008' -Actual (@($onlyReport.checks.Id) -join
 Write-Header 'CSV-отчёт'
 $csvPath = Join-Path $tmp 'baseline.csv'
 & $auditScript -OutputFormat Csv -OutputPath $csvPath -FailOn None -Quiet
-$csvLines = @(Get-Content -LiteralPath $csvPath -Encoding utf8)
-Assert-True -Condition ($csvLines[0] -like '"Id","Title"*') -Message 'заголовок CSV на месте'
-Assert-Equal -Expected 19 -Actual $csvLines.Count -Message '18 строк данных + заголовок'
+$csvRows = @(Import-Csv -LiteralPath $csvPath)
+Assert-True -Condition ((@($csvRows[0].PSObject.Properties.Name) -contains 'Id')) -Message 'в CSV есть колонка Id'
+Assert-Equal -Expected 18 -Actual $csvRows.Count -Message 'в CSV 18 строк данных'
+Assert-Equal -Expected 18 -Actual (@($csvRows | Where-Object { $_.Status }).Count) -Message 'у каждой строки есть статус'
 
 # --- 5. HTML ----------------------------------------------------------------
 Write-Header 'HTML-отчёт'
@@ -137,10 +144,10 @@ $consoleOutput = (& $auditScript -FailOn None -NoColor | Out-String)
 Assert-True -Condition ($consoleOutput -match 'Аудит базовых настроек') -Message 'консольный отчёт содержит заголовок'
 Assert-True -Condition ($consoleOutput -match 'Оценка защищённости') -Message 'консольный отчёт содержит оценку'
 
-& $auditScript -FailOn None -Quiet
+& $pwshExe -NoProfile -File $auditScript -FailOn None -Quiet
 Assert-Equal -Expected 0 -Actual $LASTEXITCODE -Message 'FailOn None даёт код 0'
 
-$null = & $auditScript -Only 'SEC-999' -Quiet 2>&1
+& $pwshExe -NoProfile -File $auditScript -Only 'SEC-999' -Quiet 2>$null
 Assert-Equal -Expected 2 -Actual $LASTEXITCODE -Message 'неизвестная проверка даёт код 2'
 
 $unknownOutput = (& $auditScript -FailOn None -NoColor -IncludeUnknown | Out-String)

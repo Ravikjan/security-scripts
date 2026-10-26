@@ -47,8 +47,8 @@ jobs:
 
       - name: Список проверок
         shell: pwsh
-        run: ./scripts/security_audit/Test-SecurityBaseline.ps1 -List
+        run: pwsh -NoProfile -File ./scripts/security_audit/Test-SecurityBaseline.ps1 -List
 
       - name: Тесты аудита
         shell: pwsh
-        run: ./tests/Test-SecurityBaseline.ps1
+        run: pwsh -NoProfile -File ./tests/Test-SecurityBaseline.ps1
