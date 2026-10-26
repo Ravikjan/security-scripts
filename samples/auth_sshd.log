@@ -1,0 +1,48 @@
+Oct 26 00:10:01 srv01 CRON[1001]: pam_unix(cron:session): session opened for user root by (uid=0)
+Oct 26 00:10:02 srv01 sshd[1002]: Accepted publickey for deploy from 192.0.2.10 port 51422 ssh2: RSA SHA256:q3Ck9nD1z0nVv2Kk8Lm4Pp6Rr8Tt0Yy2Uu4Ii6Oo8Aa
+Oct 26 00:10:05 srv01 sshd[1002]: Received disconnect from 192.0.2.10 port 51422:11: disconnected by user
+Oct 26 00:11:01 srv01 sshd[1010]: Invalid user test from 198.51.100.23 port 40222
+Oct 26 00:11:03 srv01 sshd[1010]: Failed password for invalid user test from 198.51.100.23 port 40222 ssh2
+Oct 26 00:11:07 srv01 sshd[1011]: Invalid user oracle from 198.51.100.23 port 40230
+Oct 26 00:11:09 srv01 sshd[1011]: Failed password for invalid user oracle from 198.51.100.23 port 40230 ssh2
+Oct 26 00:11:13 srv01 sshd[1012]: Invalid user postgres from 198.51.100.23 port 40238
+Oct 26 00:11:15 srv01 sshd[1012]: Failed password for invalid user postgres from 198.51.100.23 port 40238 ssh2
+Oct 26 00:11:19 srv01 sshd[1013]: Invalid user jenkins from 198.51.100.23 port 40246
+Oct 26 00:11:21 srv01 sshd[1013]: Failed password for invalid user jenkins from 198.51.100.23 port 40246 ssh2
+Oct 26 00:11:25 srv01 sshd[1014]: Invalid user git from 198.51.100.23 port 40254
+Oct 26 00:11:27 srv01 sshd[1014]: Failed password for invalid user git from 198.51.100.23 port 40254 ssh2
+Oct 26 00:11:31 srv01 sshd[1015]: Invalid user vpn from 198.51.100.23 port 40262
+Oct 26 00:11:33 srv01 sshd[1015]: Failed password for invalid user vpn from 198.51.100.23 port 40262 ssh2
+Oct 26 00:11:37 srv01 sshd[1016]: Invalid user backup from 198.51.100.23 port 40270
+Oct 26 00:11:39 srv01 sshd[1016]: Failed password for invalid user backup from 198.51.100.23 port 40270 ssh2
+Oct 26 00:11:43 srv01 sshd[1017]: Invalid user dev from 198.51.100.23 port 40278
+Oct 26 00:11:45 srv01 sshd[1017]: Failed password for invalid user dev from 198.51.100.23 port 40278 ssh2
+Oct 26 00:11:50 srv01 sshd[1018]: error: maximum authentication attempts exceeded for invalid user test from 198.51.100.23 port 40300 ssh2 [preauth]
+Oct 26 00:12:02 srv01 sshd[1020]: Failed password for root from 203.0.113.9 port 44100 ssh2
+Oct 26 00:12:05 srv01 sshd[1021]: Failed password for root from 203.0.113.9 port 44110 ssh2
+Oct 26 00:12:30 srv01 sshd[1022]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=203.0.113.9  user=root
+Oct 26 00:13:02 srv01 sshd[1025]: Failed password for root from 203.0.113.10 port 44200 ssh2
+Oct 26 00:13:04 srv01 sshd[1026]: Failed password for root from 203.0.113.10 port 44210 ssh2
+Oct 26 00:13:41 srv01 sshd[1027]: Failed password for root from 203.0.113.11 port 44300 ssh2
+Oct 26 00:13:43 srv01 sshd[1028]: Failed password for root from 203.0.113.11 port 44310 ssh2
+Oct 26 00:14:01 srv01 sshd[1041]: Failed password for admin from 203.0.113.66 port 51001 ssh2
+Oct 26 00:14:03 srv01 sshd[1041]: Failed password for admin from 203.0.113.66 port 51002 ssh2
+Oct 26 00:14:05 srv01 sshd[1041]: Failed password for admin from 203.0.113.66 port 51003 ssh2
+Oct 26 00:14:07 srv01 sshd[1041]: Failed password for admin from 203.0.113.66 port 51004 ssh2
+Oct 26 00:14:09 srv01 sshd[1041]: Failed password for admin from 203.0.113.66 port 51005 ssh2
+Oct 26 00:14:11 srv01 sshd[1041]: Failed password for admin from 203.0.113.66 port 51006 ssh2
+Oct 26 00:14:13 srv01 sshd[1042]: Failed password for admin from 203.0.113.66 port 51007 ssh2
+Oct 26 00:14:15 srv01 sshd[1042]: Failed password for admin from 203.0.113.66 port 51008 ssh2
+Oct 26 00:14:17 srv01 sshd[1042]: Failed password for admin from 203.0.113.66 port 51009 ssh2
+Oct 26 00:14:19 srv01 sshd[1042]: Failed password for admin from 203.0.113.66 port 51010 ssh2
+Oct 26 00:14:21 srv01 sshd[1043]: Failed password for admin from 203.0.113.66 port 51011 ssh2
+Oct 26 00:14:23 srv01 sshd[1043]: Failed password for admin from 203.0.113.66 port 51012 ssh2
+Oct 26 00:14:25 srv01 sshd[1043]: Failed password for admin from 203.0.113.66 port 51013 ssh2
+Oct 26 00:14:27 srv01 sshd[1043]: Failed password for admin from 203.0.113.66 port 51014 ssh2
+Oct 26 00:14:29 srv01 sshd[1044]: Failed password for admin from 203.0.113.66 port 51015 ssh2
+Oct 26 00:14:31 srv01 sshd[1044]: Failed password for admin from 203.0.113.66 port 51016 ssh2
+Oct 26 00:14:33 srv01 sshd[1044]: Failed password for admin from 203.0.113.66 port 51017 ssh2
+Oct 26 00:14:35 srv01 sshd[1044]: Failed password for admin from 203.0.113.66 port 51018 ssh2
+Oct 26 00:15:00 srv01 sshd[1050]: Accepted password for admin from 203.0.113.66 port 51090 ssh2
+Oct 26 00:20:00 srv01 sshd[1100]: Accepted publickey for deploy from 192.0.2.10 port 51500 ssh2: RSA SHA256:q3Ck9nD1z0nVv2Kk8Lm4Pp6Rr8Tt0Yy2Uu4Ii6Oo8Aa
+Oct 26 00:21:00 srv01 sshd[1101]: Connection closed by authenticating user deploy 192.0.2.10 port 51500 [preauth]

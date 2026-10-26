@@ -1,0 +1,57 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+build/
+dist/
+
+# --- Отчёты и результаты запусков ---
+reports/
+out/
+.test-tmp/
+*.report.json
+*.report.csv
+*.report.html
+security-report.*
+!samples/
+
+# --- Временные файлы ---
+*.tmp
+*.bak
+*.orig
+*.rej
+*.log.*
+*.swp
+~$*
+
+# --- IDE и редакторы ---
+.vscode/
+.idea/
+*.iml
+*.sublime-workspace
+
+# --- Windows ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# --- macOS ---
+.DS_Store
+._*
+
+# --- Секреты (на всякий случай: файл токена лежит ВНЕ репозитория) ---
+*.env
+.env.*
+.secrets/
+*.token
+github-token*

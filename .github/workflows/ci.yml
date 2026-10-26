@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    name: Python ${{ matrix.python }} на ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Установить Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Тесты
+        run: python -m unittest discover -s tests -t . -v
+
+      - name: Анализатор журналов на учебном примере
+        run: python scripts/log_analyzer/analyze_logs.py samples/auth_sshd.log --quiet --fail-on none --year 2026
+
+      - name: Извлекатель индикаторов на учебном примере
+        run: python scripts/ioc_extractor/extract_iocs.py samples/threat_report.txt --quiet --types ipv4,domain
+
+  powershell:
+    name: PowerShell на ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Список проверок
+        shell: pwsh
+        run: ./scripts/security_audit/Test-SecurityBaseline.ps1 -List
+
+      - name: Тесты аудита
+        shell: pwsh
+        run: ./tests/Test-SecurityBaseline.ps1
