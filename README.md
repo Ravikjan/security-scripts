@@ -1,5 +1,11 @@
 # Security Scripts — автоматизация рутинных задач ИБ
 
+[![CI](https://github.com/Ravikjan/security-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/Ravikjan/security-scripts/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/Ravikjan/security-scripts?style=flat-square&label=релиз)](https://github.com/Ravikjan/security-scripts/releases)
+[![License](https://img.shields.io/github/license/Ravikjan/security-scripts?style=flat-square&label=лицензия)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.9%2B-3670A0?style=flat-square&logo=python&logoColor=ffdd54)](https://www.python.org/)
+[![PowerShell](https://img.shields.io/badge/powershell-7%2B-5391FE?style=flat-square&logo=powershell&logoColor=white)](https://aka.ms/powershell)
+
 Три небольших инструмента для ежедневной работы администратора или аналитика
 SOC: поиск брутфорса в журналах, проверка базовых настроек Windows и извлечение
 индикаторов компрометации из текстов. Всё написано на Python и PowerShell 7,
